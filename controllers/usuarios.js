@@ -71,15 +71,13 @@ const usuariosGet = async (req, res = response ) => {
   }
 
   const usuariosDelete = async (req, res = response ) => {
+    
     const {id}= req.params;
-
-    //Borrado Fisico (OJO, porque si borramos un usuario que tiene transacciones en la BD podemos generar inconsistencias)
-    // const usuario = await Usuario.findByIdAndDelete(id);
-
-    const usuario = await Usuario.findByIdAndUpdate(id,{estado: false});
+  
+    const usuario = await Usuario.findByIdAndUpdate(id,{estado: false});    
 
     res.json({
-      msg: "delete API - controlador ", usuario ,
+      msg: "delete API - controlador ", usuario
     });
   }
 
